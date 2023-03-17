@@ -1,18 +1,23 @@
 
 
-const list = () => {
+const list = ({ people }) => {
     return (
         <>
-            <article className="person">
-                <img src="" alt="" />
-                <div className="right">
-                    <h4>name</h4>
-                    <p>gmail</p>
-                    <p>years</p>
-                </div>
-            </article>
+            {people.map((person) => {
+                const { id, image, name, email, age } = person;
+                return (
+                    <article key={id} className="person">
+                        <img src={image} alt={name} />
+                        <div className="right">
+                            <h4>{name}</h4>
+                            <p>{email}</p>
+                            <p>{age} years</p>
+                        </div>
+                    </article>
+                );
+            })}
         </>
-    )
-}
+    );
+};
 
 export default list;
